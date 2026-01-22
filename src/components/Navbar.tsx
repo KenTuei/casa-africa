@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import plainLogo from '../assets/images/plain_logo.png';
+import nameLogo from '../assets/images/name_logo.jpeg';
 
 interface NavbarProps {
   onNavigate: (sectionId: string) => void;
@@ -19,7 +19,7 @@ export default function Navbar({ onNavigate }: NavbarProps) {
       <div className="container-max">
         <div className="flex items-center justify-between h-12 sm:h-16 px-4 sm:px-0">
           <div className="flex items-center cursor-pointer" onClick={() => onNavigate('hero')}>
-            <img src={plainLogo} alt="Casa Africa" className="h-10 sm:h-12 w-auto object-contain mix-blend-multiply" />
+            <img src={nameLogo} alt="Casa Africa" className="h-10 sm:h-12 w-auto object-contain mix-blend-multiply" />
           </div>
 
           <div className="hidden sm:flex items-center gap-8">

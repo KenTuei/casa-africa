@@ -1,1 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap');
 @import "tailwindcss";
+
+@theme {
+  --font-sans: 'Inter', sans-serif;
+  --font-serif: 'Playfair Display', serif;
+
+  --color-terracotta: #C26438;
+  --color-terracotta-hover: #B55828;
+  --color-ochre: #E89B3D;
+  --color-sage: #6B8E6B;
+  --color-cream: #FDF8F3;
+  --color-sand: #F5EDE4;
+  --color-charcoal: #1A1A1A;
+  --color-charcoal-muted: #6B6B6B;
+  --color-white-soft: #FAFAFA;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-weight: 400;
+  background-color: var(--color-cream);
+  color: var(--color-charcoal);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+.section-pad {
+  padding: 3rem 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .section-pad {
+    padding: 5rem 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-pad {
+    padding: 5rem 2rem;
+  }
+}
+
+.container-max {
+  max-width: 68rem;
+  margin: 0 auto;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--color-terracotta);
+  color: white;
+  font-weight: 500;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .btn-primary {
+    width: auto;
+    padding: 0.875rem 2rem;
+    font-size: 0.9375rem;
+  }
+}
+
+.btn-primary:hover {
+  background-color: var(--color-terracotta-hover);
+  transform: translateY(-1px);
+}
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  color: var(--color-charcoal);
+  font-weight: 500;
+  font-size: 0.875rem;
+  border-radius: 0.5rem;
+  transition: color 0.2s ease;
+  cursor: pointer;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .btn-secondary {
+    width: auto;
+    padding: 0.875rem 2rem;
+    font-size: 0.9375rem;
+  }
+}
+
+.btn-secondary:hover {
+  color: var(--color-terracotta);
+}
+
+.input-field {
+  width: 100%;
+  padding: 0.75rem 1rem;
+  background-color: var(--color-white-soft);
+  border: 1px solid var(--color-sand);
+  border-radius: 0.5rem;
+  font-size: 0.9375rem;
+  color: var(--color-charcoal);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  outline: none;
+}
+
+.input-field::placeholder {
+  color: var(--color-charcoal-muted);
+}
+
+.input-field:focus {
+  border-color: var(--color-terracotta);
+  box-shadow: 0 0 0 3px rgba(194, 100, 56, 0.1);
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .card {
+    padding: 1.5rem;
+  }
+}
+
+.card-subtle {
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.75rem;
+  padding: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .card-subtle {
+    padding: 1.5rem;
+  }
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+img {
+  transition: opacity 0.3s ease;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-terracotta);
+  outline-offset: 2px;
+}
+
+::selection {
+  background-color: var(--color-terracotta);
+  color: white;
+}

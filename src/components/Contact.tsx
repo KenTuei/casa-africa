@@ -1,4 +1,29 @@
+import { useState } from 'react';
+
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    firstName: '',
+    lastName: '',
+    email: '',
+    message: '',
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    const subject = ` inquiry from ${formData.firstName} ${formData.lastName}`;
+    const body = `Name: ${formData.firstName} ${formData.lastName}%0D%0AEmail: ${formData.email}%0D%0A%0D%0AMessage:%0D%0A${formData.message}`;
+
+    window.location.href = `mailto:hello@casaafrica.com?subject=${subject}&body=${body}`;
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData(prev => ({
+      ...prev,
+      [e.target.id]: e.target.value,
+    }));
+  };
+
   return (
     <section id="contact" className="section-pad bg-cream">
       <div className="container-max">
@@ -20,10 +45,6 @@ export default function Contact() {
                 </a>
               </div>
               <div>
-                <p className="text-xs text-charcoal-muted mb-1 uppercase tracking-wide">Phone</p>
-                <p className="text-sm text-charcoal">+254 (0) XXX XXX XXX</p>
-              </div>
-              <div>
                 <p className="text-xs text-charcoal-muted mb-1 uppercase tracking-wide">Location</p>
                 <p className="text-sm text-charcoal">East Africa, with pan-African expansion</p>
               </div>
@@ -31,7 +52,7 @@ export default function Contact() {
           </div>
 
           <div className="card">
-            <form className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div>
                   <label htmlFor="firstName" className="block text-sm text-charcoal-muted mb-1.5">
@@ -40,8 +61,11 @@ export default function Contact() {
                   <input
                     type="text"
                     id="firstName"
+                    value={formData.firstName}
+                    onChange={handleChange}
                     className="input-field"
                     placeholder="First name"
+                    required
                   />
                 </div>
                 <div>
@@ -51,8 +75,11 @@ export default function Contact() {
                   <input
                     type="text"
                     id="lastName"
+                    value={formData.lastName}
+                    onChange={handleChange}
                     className="input-field"
                     placeholder="Last name"
+                    required
                   />
                 </div>
               </div>
@@ -64,8 +91,11 @@ export default function Contact() {
                 <input
                   type="email"
                   id="email"
+                  value={formData.email}
+                  onChange={handleChange}
                   className="input-field"
                   placeholder="you@company.com"
+                  required
                 />
               </div>
 
@@ -75,9 +105,12 @@ export default function Contact() {
                 </label>
                 <textarea
                   id="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   rows={4}
                   className="input-field resize-none"
                   placeholder="Tell us about your needs..."
+                  required
                 ></textarea>
               </div>
 

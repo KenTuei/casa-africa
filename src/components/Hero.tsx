@@ -53,11 +53,6 @@ export default function Hero({ onNavigate }: HeroProps) {
           {/* Stats */}
           <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-16 animate-fade-in-up animation-delay-400">
             <div className="text-center">
-              <div className="text-3xl sm:text-4xl font-semibold text-charcoal mb-1">8</div>
-              <div className="text-sm text-charcoal-muted">Products Built</div>
-            </div>
-            <div className="hidden sm:block w-px h-12 bg-sand"></div>
-            <div className="text-center">
               <div className="text-3xl sm:text-4xl font-semibold text-charcoal mb-1">50+</div>
               <div className="text-sm text-charcoal-muted">Happy Clients</div>
             </div>

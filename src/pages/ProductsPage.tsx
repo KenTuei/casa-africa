@@ -46,7 +46,7 @@ export default function ProductsPage() {
 
     return (
         <div className="min-h-screen bg-cream flex flex-col relative">
-            <Navbar onNavigate={(sectionId) => {
+            <Navbar onNavigate={(sectionId: string) => {
                 if (sectionId === 'hero' || sectionId === 'about' || sectionId === 'contact') {
                     window.location.href = `/#${sectionId}`;
                 }

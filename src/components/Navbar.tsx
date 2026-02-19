@@ -3,11 +3,12 @@ import { Link, useLocation } from 'react-router-dom';
 import nameLogo from '../assets/images/name_logo.jpeg';
 import { Menu, X } from 'lucide-react';
 
-interface NavbarProps {
+export interface NavbarProps {
   onNavigate: (sectionId: string) => void;
 }
 
-export default function Navbar({ onNavigate }: NavbarProps) {
+export function Navbar(props: NavbarProps) {
+  const { onNavigate } = props;
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const isHomePage = location.pathname === '/';
@@ -15,22 +16,19 @@ export default function Navbar({ onNavigate }: NavbarProps) {
   const navItems = [
     { id: 'products', label: 'Products', isLink: true, path: '/products' },
     { id: 'about', label: 'About', isLink: false },
-    { id: 'contact', label: 'Contact', isLink: false }, // Handled specially
+    { id: 'contact', label: 'Contact', isLink: false },
   ];
 
   const handleNavClick = (item: { id: string; isLink?: boolean; path?: string }) => {
     setIsMenuOpen(false);
 
     if (item.isLink && item.path) {
-      // Just let the Link component handle it naturally
       return;
     }
 
     if (!isHomePage) {
-      // If not on home page, navigate to home with hash
       window.location.href = `/#${item.id}`;
     } else {
-      // If on home page, use scroll
       onNavigate(item.id);
     }
   };
@@ -120,3 +118,5 @@ export default function Navbar({ onNavigate }: NavbarProps) {
     </nav>
   );
 }
+
+export default Navbar;

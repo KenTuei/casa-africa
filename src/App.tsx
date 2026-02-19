@@ -1,7 +1,6 @@
 import { useEffect } from 'react';
 import Lenis from 'lenis';
 import { Routes, Route } from 'react-router-dom';
-import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Products from './components/Products';
 import Features from './components/Features';
@@ -10,6 +9,7 @@ import Contact from './components/Contact';
 import Footer from './components/Footer';
 import ProductsPage from './pages/ProductsPage';
 import ScrollToTop from './components/ScrollToTop';
+import Navbar from './components/Navbar';
 
 function HomePage() {
   const handleNavigate = (sectionId: string) => {
@@ -28,7 +28,7 @@ function HomePage() {
       <Navbar onNavigate={handleNavigate} />
       <main>
         <Hero onNavigate={handleNavigate} />
-        <Products onNavigate={handleNavigate} />
+        <Products />
         <Features />
         <About />
         <Contact />
@@ -43,12 +43,8 @@ function App() {
   useEffect(() => {
     const lenis = new Lenis({
       duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth easing
-      direction: 'vertical',
-      gestureDirection: 'vertical',
-      smooth: true,
-      smoothTouch: false,
-      touchMultiplier: 2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+      smoothWheel: true,
     });
 
     function raf(time: number) {

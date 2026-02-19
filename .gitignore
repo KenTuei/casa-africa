@@ -38,3 +38,6 @@ coverage/
 
 # Misc
 /misc
+
+# Sisyphus (orchestration system)
+.sisyphus/

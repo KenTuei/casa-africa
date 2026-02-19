@@ -1,3 +1,6 @@
+import { ChevronDown } from 'lucide-react';
+import Button from './Button';
+
 interface HeroProps {
   onNavigate: (sectionId: string) => void;
 }
@@ -19,7 +22,7 @@ export default function Hero({ onNavigate }: HeroProps) {
 
 
           {/* Main headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium text-charcoal leading-[1.1] mb-6 animate-fade-in-up animation-delay-100">
+          <h1 className="heading-hero text-charcoal leading-[1.1] mb-6 animate-fade-in-up animation-delay-100">
             We build software
             <br />
             <span className="text-terracotta">that works</span> for Africa
@@ -33,21 +36,21 @@ export default function Hero({ onNavigate }: HeroProps) {
 
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16 animate-fade-in-up animation-delay-300">
-            <button
+            <Button
               onClick={() => onNavigate('products')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-terracotta text-white rounded-full text-base font-medium hover:bg-terracotta-hover hover:-translate-y-0.5 transition-all duration-300 cursor-pointer shadow-lg shadow-terracotta/20"
+              size="lg"
+              className="elevation-lg"
             >
               Explore our work
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-              </svg>
-            </button>
-            <button
+              <ChevronDown className="w-5 h-5" />
+            </Button>
+            <Button
               onClick={() => onNavigate('contact')}
-              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/80 backdrop-blur-sm text-charcoal rounded-full text-base font-medium border border-sand hover:bg-white hover:border-charcoal/20 hover:-translate-y-0.5 transition-all duration-300 cursor-pointer"
+              variant="secondary"
+              size="lg"
             >
               Start a project
-            </button>
+            </Button>
           </div>
 
           {/* Stats */}
@@ -66,9 +69,9 @@ export default function Hero({ onNavigate }: HeroProps) {
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce hidden sm:block">
-        <div className="w-6 h-10 border-2 border-charcoal/20 rounded-full flex items-start justify-center p-2">
-          <div className="w-1 h-2 bg-charcoal/40 rounded-full"></div>
+      <div className="absolute bottom-6 sm:bottom-8 left-1/2 -translate-x-1/2 animate-bounce cursor-pointer" onClick={() => onNavigate('products')}>
+        <div className="w-5 h-8 sm:w-6 sm:h-10 border-2 border-charcoal/20 rounded-full flex items-start justify-center p-1.5 sm:p-2">
+          <div className="w-1 h-1.5 sm:h-2 bg-charcoal/40 rounded-full"></div>
         </div>
       </div>
     </section>

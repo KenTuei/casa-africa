@@ -1,4 +1,6 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import Lenis from 'lenis';
+import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import Products from './components/Products';
@@ -6,42 +8,24 @@ import Features from './components/Features';
 import About from './components/About';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import ProductsPage from './pages/ProductsPage';
+import ScrollToTop from './components/ScrollToTop';
 
-function App() {
-  const [showBackToTop, setShowBackToTop] = useState(false);
-
+function HomePage() {
   const handleNavigate = (sectionId: string) => {
     const element = document.getElementById(sectionId);
     if (element) {
+      // With Lenis, we should use lenis.scrollTo or just native scroll if Lenis observes it?
+      // Lenis observes native smooth scroll usually, or hooks into scroll events.
+      // But for anchor links, Lenis usually handles it if configured.
+      // Here just using native scrollIntoView.
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setShowBackToTop(window.scrollY > 500);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   return (
     <div className="min-h-screen bg-cream">
       <Navbar onNavigate={handleNavigate} />
-
-      {showBackToTop && (
-        <button
-          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-8 right-8 w-12 h-12 bg-terracotta text-white rounded-full flex items-center justify-center shadow-lg hover:bg-terracotta-hover transition-all duration-300 hover:-translate-y-1 z-40 cursor-pointer"
-          aria-label="Back to top"
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
-          </svg>
-        </button>
-      )}
-
       <main>
         <Hero onNavigate={handleNavigate} />
         <Products onNavigate={handleNavigate} />
@@ -51,6 +35,46 @@ function App() {
       </main>
       <Footer />
     </div>
+  );
+}
+
+function App() {
+  // Initialize Lenis for smooth scrolling
+  useEffect(() => {
+    const lenis = new Lenis({
+      duration: 1.2,
+      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)), // smooth easing
+      direction: 'vertical',
+      gestureDirection: 'vertical',
+      smooth: true,
+      smoothTouch: false,
+      touchMultiplier: 2,
+    });
+
+    function raf(time: number) {
+      lenis.raf(time);
+      requestAnimationFrame(raf);
+    }
+
+    requestAnimationFrame(raf);
+
+    // Expose lenis for other components to control (e.g. stop/start)
+    (window as any).lenis = lenis;
+
+    return () => {
+      lenis.destroy();
+      (window as any).lenis = null;
+    };
+  }, []);
+
+  return (
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/products" element={<ProductsPage />} />
+      </Routes>
+    </>
   );
 }
 

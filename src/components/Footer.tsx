@@ -7,12 +7,12 @@ export default function Footer() {
     <footer className="bg-charcoal text-white py-10">
       <div className="container-max">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
-          <div className="bg-white rounded-lg px-4 py-2">
+          <div className="bg-white rounded-md px-4 py-2">
             <img src="/mberi.jpeg" alt="Mberi LTD" className="h-8 w-auto object-contain" />
           </div>
 
           <p className="text-sm text-white/50">
-            © {currentYear} Casa Africa. All rights reserved.
+            © {currentYear} Mberi LTD. All rights reserved.
           </p>
         </div>
       </div>

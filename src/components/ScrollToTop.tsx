@@ -9,7 +9,21 @@ export default function ScrollToTop() {
     const { pathname } = useLocation();
 
     useEffect(() => {
-        window.scrollTo(0, 0);
+        const resetScroll = () => {
+            if ((window as any).lenis) {
+                (window as any).lenis.scrollTo(0, { immediate: true });
+            } else {
+                window.scrollTo(0, 0);
+            }
+        };
+
+        // Execute immediately
+        resetScroll();
+
+        // Also execute after a tiny delay to ensure route transitions/DOM updates are settled
+        const timer = setTimeout(resetScroll, 50);
+
+        return () => clearTimeout(timer);
     }, [pathname]);
 
     return null;

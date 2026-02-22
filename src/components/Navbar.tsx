@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import nameLogo from '../assets/images/name_logo.jpeg';
 import { Menu, X } from 'lucide-react';
 
 export interface NavbarProps {
@@ -38,7 +37,7 @@ export function Navbar(props: NavbarProps) {
       <div className="container-max">
         <div className="flex items-center justify-between h-12 sm:h-16 px-4 sm:px-0">
           <Link to="/" className="flex items-center cursor-pointer" onClick={() => isHomePage && onNavigate('hero')}>
-            <img src={nameLogo} alt="Mberi LTD" className="h-10 sm:h-12 w-auto object-contain mix-blend-multiply" />
+            <img src="/mberi.jpeg" alt="Mberi LTD" className="h-10 sm:h-12 w-auto object-contain mix-blend-multiply" />
           </Link>
 
           <div className="hidden sm:flex items-center gap-8">

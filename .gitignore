@@ -41,3 +41,20 @@ coverage/
 
 # Sisyphus (orchestration system)
 .sisyphus/
+
+# Vite
+.vite/
+
+# Vercel
+.vercel/
+
+# Caching & Tooling
+.eslintcache
+.stylelintcache
+.prettiercache
+tsconfig.tsbuildinfo
+.tsbuildinfo
+
+# Build outputs (fallback)
+build/
+out/

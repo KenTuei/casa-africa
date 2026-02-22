@@ -1,3 +1,6 @@
+import { ChevronDown } from 'lucide-react';
+import Button from './Button';
+
 interface HeroProps {
   onNavigate: (sectionId: string) => void;
 }

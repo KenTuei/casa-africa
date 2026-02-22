@@ -4,13 +4,13 @@ export default function About() {
       <div className="container-max">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
           <div>
-            <h2 className="heading-section mb-5">
-              Building Africa's digital future
+            <h2 className="text-2xl sm:text-3xl font-medium mb-5">
+              Building Africa&apos;s digital future
             </h2>
 
             <p className="text-sm sm:text-base text-white/70 mb-4 leading-relaxed">
               Africa faces persistent challenges in healthcare, financial inclusion,
-              workforce management, and digital services. At Mberi LTD, we believe
+              workforce management, and digital services. At Casa Africa, we believe
               the solutions should be built here.
             </p>
 

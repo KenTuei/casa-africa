@@ -32,12 +32,3 @@ lerna-debug.log*
 *.njsproj
 *.sln
 *.sw?
-
-# Testing
-coverage/
-
-# Misc
-/misc
-
-# Sisyphus (orchestration system)
-.sisyphus/

@@ -20,10 +20,10 @@ jobs:
           node-version: 20
 
       - name: Install dependencies
-        run: npm install
+        run: bun install
 
       - name: Build
-        run: npm run build
+        run: bun run build
 
       # Example deployment step
       - name: Deploy to server

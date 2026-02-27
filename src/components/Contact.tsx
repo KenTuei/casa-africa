@@ -49,7 +49,7 @@ export default function Contact() {
 
                 <div className="space-y-4">
                   <a
-                    href="mailto:hello@mberiltd.com"
+                    href="mailto:contact@mberi.tech"
                     className="block"
                   >
                     <Button fullWidth size="lg" className="elevation-md hover:elevation-lg">

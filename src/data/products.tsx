@@ -12,7 +12,9 @@ import {
     Languages,
     MessageCircle,
     Megaphone,
-    ShieldAlert
+    ShieldAlert,
+    Building2,
+    Hospital
 } from 'lucide-react';
 
 export interface Product {
@@ -30,7 +32,7 @@ export const products: Product[] = [
     // --- Original 8 Products (from Concept Note) ---
     {
         id: 'immuno',
-        name: 'Immuno',
+        name: 'Immunization Tracker',
         category: 'Healthcare',
         shortDescription: 'Digital health and immunization management platform.',
         fullDescription: 'A digital health and immunization management platform designed to support health facilities, NGOs, and governments in tracking immunization coverage, facility performance, and child health outcomes. The system enables data-driven decision-making and improved service delivery.',
@@ -224,5 +226,50 @@ export const products: Product[] = [
         ],
         targetAudience: ['Digital Platforms', 'Communities'],
         icon: <ShieldAlert className="w-6 h-6" />,
+    },
+    {
+        id: 'construction-manager-app',
+        name: 'Construction Manager App',
+        category: 'Construction',
+        shortDescription: 'Smart project management solution for construction managers.',
+        fullDescription: 'A smart project management solution designed for construction managers to streamline site operations, track project progress, manage budgets, and coordinate workers in real time. The app improves efficiency by centralizing task assignments, material tracking, reporting, and communication—reducing delays and enhancing accountability on construction projects.',
+        features: [
+            'Site operations management',
+            'Real-time progress tracking',
+            'Budget and material tracking',
+            'Worker coordination and reporting'
+        ],
+        targetAudience: ['Construction Managers', 'Contractors', 'Project Teams'],
+        icon: <Building2 className="w-6 h-6" />,
+    },
+    {
+        id: 'hospital-stra-system',
+        name: 'Hospital STRA System',
+        category: 'Healthcare Operations',
+        shortDescription: 'Digital hospital management system for patient flow and records.',
+        fullDescription: 'A digital hospital management system built to simplify patient flow, record management, and operational tracking within healthcare facilities. The STRA system enhances efficiency by organizing patient data, supporting staff coordination, and improving service delivery through structured reporting and real-time information access.',
+        features: [
+            'Patient flow management',
+            'Digital record organization',
+            'Staff coordination support',
+            'Structured reporting and tracking'
+        ],
+        targetAudience: ['Hospitals', 'Clinics', 'Healthcare Administrators'],
+        icon: <Hospital className="w-6 h-6" />,
+    },
+    {
+        id: 'afronative',
+        name: 'Afronative',
+        category: 'Education',
+        shortDescription: 'Language learning application for African native languages.',
+        fullDescription: 'A language learning application focused on African native languages. Afronative helps learners build vocabulary, practice pronunciation, and improve fluency through interactive and culturally relevant learning experiences.',
+        features: [
+            'African native language lessons',
+            'Vocabulary and pronunciation practice',
+            'Interactive learning paths',
+            'Progress tracking'
+        ],
+        targetAudience: ['Students', 'Language Learners', 'Schools'],
+        icon: <Languages className="w-6 h-6" />,
     },
 ];

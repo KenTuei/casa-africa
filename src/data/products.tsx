@@ -61,8 +61,8 @@ export const products: Product[] = [
         icon: <Search className="w-6 h-6" />,
     },
     {
-        id: 'seamless-hr',
-        name: 'SeamlessHR',
+        id: 'hr-management',
+        name: 'HR Management',
         category: 'HR Management',
         shortDescription: 'Workforce management with records and payroll.',
         fullDescription: 'A workforce and human resource management system adapted for African SMEs and institutions. Features include employee records, payroll integration readiness, leave management, performance tracking, and compliance support.',
